@@ -1,13 +1,14 @@
 var express = require('express');
+const { resourceLimits } = require('worker_threads');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Four Salud' , body: 'Bienvenido a Four Salud' });
+  res.render('index');
 });
 
-router.get('/registro', (req, res, next) => {
-  res.render('index',{ title: 'Aca va el registro de pacientes', body: 'formulario aca'});
+router.get('/sobre-nosotros', function(req, res, next) {
+  res.render('sobre_nosotros');
 });
 
 module.exports = router;
