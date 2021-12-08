@@ -9,18 +9,14 @@ CREATE TABLE users (
     password varchar(40) not null
 );
 
-CREATE TABLE diseases (
-    id int auto_increment primary key,
-    name varchar(30) NOT NULL,
+CREATE TABLE families (
+    id INT PRIMARY KEY,
+    cod INT NOT NULL
 );
 
-CREATE TABLE patients_diseases (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    disease_id INT,
-    FOREIGN KEY (disease_id) REFERENCES diseases(id),
-    patient_id INT,
-    FOREIGN KEY (patient_id) REFERENCES patients(id),
-    date_attention DATE
+CREATE TABLE beds (
+    id INT PRIMARY KEY,
+    cod VARCHAR(10)
 );
 
 CREATE TABLE patients (
@@ -32,15 +28,7 @@ CREATE TABLE patients (
     FOREIGN KEY (family_id) REFERENCES families(id),
     family_rol VARCHAR(20),
     bed_id INT NOT NULL,
-    FOREIGN KEY (bed_id) REFERENCES beds(id),
-);
-
-CREATE TABLE patients_doctors (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_id INT,
-    doctor_id INT
-    FOREIGN KEY (doctor_id) REFERENCES doctor(id),
-    FOREIGN KEY (patient_id) REFERENCES patients(id)
+    FOREIGN KEY (bed_id) REFERENCES beds(id)
 );
 
 CREATE TABLE doctors (
@@ -49,19 +37,32 @@ CREATE TABLE doctors (
     last_name VARCHAR(30) NOT NULL
 );
 
+CREATE TABLE diseases (
+    id int auto_increment primary key,
+    name varchar(30) NOT NULL
+);
+
+CREATE TABLE patients_diseases (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    disease_id INT,
+    FOREIGN KEY (disease_id) REFERENCES diseases(id),
+    patient_id INT,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    date_attention DATE
+);
+
+CREATE TABLE patients_doctors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    FOREIGN KEY (doctor_id) REFERENCES doctors(id),
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
 CREATE TABLE specialities (
     id INT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
     doctor_id INT,
-    FOREIGN KEY (doctor_id) REFERENCES doctor(id)
+    FOREIGN KEY (doctor_id) REFERENCES doctors(id)
 );
 
-CREATE TABLE families (
-    id INT PRIMARY KEY,
-    cod INT NOT NULL
-);
-
-CREATE TABLE beds (
-    id INT PRIMARY KEY,
-    cod VARCHAR(10)
-);
