@@ -11,6 +11,12 @@
 ```sh
 npm install
 ```
+```sh
+Instalar la base de datos -> ./database/ihc.sql
+```
+```sh
+Poner credenciales de base de datos -> ./database/database.js
+```
 
 ## Usage
 
