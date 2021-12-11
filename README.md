@@ -6,6 +6,17 @@
   </a>
 </p>
 
+## Sobre Nosotros
+
+Four Salud es un cento médico que se encarga en atender pacientes asegurados. Así como también áreas de emergencia y hospitalaria, consultas e interconsultas, salvo por COVID -19 pues estas no se atenderá. Este sistema se adecua de acuerdo con el último confinamiento existente en nuestro país.
+
+### Desarrolladores
+- Yanfer Laura, Oscar Stalyn
+- Pasache Lopera, Luiggi Steep
+- Atalaya Ramirez, Wilker Edison
+- Montalvo Ortega, Diego Tharlez
+- Castillo Santa Cruz, Adrián
+
 ## Config
 
 ```sh
