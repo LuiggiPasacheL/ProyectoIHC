@@ -6,16 +6,17 @@
   </a>
 </p>
 
+## Config
+
+```sh
+cp .example.env .env
+# Modifica el .env generado con tus credenciales
+```
+
 ## Install
 
 ```sh
 npm install
-```
-```sh
-Instalar la base de datos -> ./database/ihc.sql
-```
-```sh
-Poner credenciales de base de datos -> ./database/database.js
 ```
 
 ## Usage
