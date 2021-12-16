@@ -1,15 +1,9 @@
 var express = require('express');
 var router = express.Router();
-// var database = require('../../database/database');
+var userController = require('../../controllers/userController');
 
-/*
-// GET users listing.
-router.get('/', function (req, res, next) {
-  database.query('SELECT * FROM users', function (err, rows, fields) {
-    if (err) { console.log(err); }
-    res.send(rows);
-  });
-});
-*/
+router.get('/', userController.getUsers);
+router.get('/:id', userController.getUser);
+router.get('/login/:username',userController.loginUser);
 
 module.exports = router;
