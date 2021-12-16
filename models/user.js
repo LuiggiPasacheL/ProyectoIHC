@@ -1,45 +1,33 @@
-const database = require('../database/database')
+const query = require('../database/database')
 
-function getUserForId(id, sendFunction) {
-    database.query(`SELECT * FROM users where id=${id}`, function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    });
+async function getUserForId(id) {
+    let rows = await query(`SELECT * FROM users where id=${id}`)
+    return rows;
 }
 
-function getUserForUsername(username, sendFunction) {
-    database.query(`SELECT * FROM users where username=${username}`, function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    });
+async function getUserForUsername(username) {
+    let rows = await query(`SElECT * FROM users where username=${username}`)
+    return rows;
 }
 
-function getUsers(sendFunction) {
-    database.query('SELECT * FROM users', function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    });
+async function getUsers() {
+    let rows = await query(`SElECT * FROM users`)
+    return rows;
 }
 
-function saveUser(username, password, sendFunction) {
-    database.query(`INSERT INTO users(username,password) VALUES(${username}, ${password})`, function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    })
+async function saveUser(username, password) {
+    let rows = await query(`INSERT INTO users(username,password) VALUES(${username}, ${password})`)
+    return rows;
 }
 
-function updateUser(username, password, sendFunction) {
-    database.query(`UPDATE users SET username=${username}, password=${password} where username=${username}`, function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    })
+async function updateUser(username, password) {
+    let result = await query(`UPDATE users SET username=${username}, password=${password} where username=${username}`)
+    return result;
 }
 
-function deleteUser(username, sendFunction) {
-    database.query(`DELETE users where username=${username}`, function (err, rows, fields) {
-        if (err) { console.log(err); }
-        sendFunction(rows);
-    })
+async function deleteUser(username) {
+    let result = await query(`DELETE users where username=${username}`)
+    return result;
 }
 
 module.exports = {
