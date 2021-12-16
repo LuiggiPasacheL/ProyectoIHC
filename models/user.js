@@ -1,7 +1,14 @@
 const database = require('../database/database')
 
-function getUser(id, sendFunction) {
+function getUserForId(id, sendFunction) {
     database.query(`SELECT * FROM users where id=${id}`, function (err, rows, fields) {
+        if (err) { console.log(err); }
+        sendFunction(rows);
+    });
+}
+
+function getUserForUsername(username, sendFunction) {
+    database.query(`SELECT * FROM users where username=${username}`, function (err, rows, fields) {
         if (err) { console.log(err); }
         sendFunction(rows);
     });
@@ -36,7 +43,8 @@ function deleteUser(username, sendFunction) {
 }
 
 module.exports = {
-    getUser,
+    getUserForId,
+    getUserForUsername,
     getUsers,
     saveUser,
     updateUser,
