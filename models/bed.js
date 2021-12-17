@@ -7,7 +7,7 @@ async function getAllBeds() {
 
 async function getBedsForID(id) {
     let bed = await query(`SELECT * FROM beds WHERE id=${id}`)
-    return beds
+    return bed
 }
 
 async function createBed(cod) {
@@ -22,6 +22,7 @@ async function updateBed(id, cod) {
 
 async function deleteBed(id) {
     let result = await query(`DELETE beds WHERE cod='${id}'`)
+    return result
 }
 
 module.exports = {
