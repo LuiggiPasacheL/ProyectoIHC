@@ -1,11 +1,11 @@
 const query = require('../database/database')
 
-async function getAll() {
+async function getAllBeds() {
     let beds = await query('SELECT * FROM beds');
     return beds
 }
 
-async function getForID(id) {
+async function getBedsForID(id) {
     let bed = await query(`SELECT * FROM beds WHERE id=${id}`)
     return beds
 }
@@ -21,12 +21,12 @@ async function updateBed(id, cod) {
 }
 
 async function deleteBed(id) {
-    let result = await query(`DELETE beds WHERE cod='${cod}'`)
+    let result = await query(`DELETE beds WHERE cod='${id}'`)
 }
 
 module.exports = {
-    getAll,
-    getForID,
+    getAllBeds,
+    getBedsForID,
     createBed,
     updateBed,
     deleteBed

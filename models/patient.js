@@ -1,1 +1,0 @@
-const query = require('../database/database')
