@@ -1,11 +1,12 @@
 const user = require('../models/user')
 
 async function loginUser(req, res) {
-    let username = req.params.username
-    let password = req.params.password
+    let username = req.body.username
+    let password = req.body.password
+
     let data = await user.getUserForUsername(username)
 
-    res.send(password === data)
+    res.send(data[0].password === password);
 }
 
 async function getUsers(req, res) {
