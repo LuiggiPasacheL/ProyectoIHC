@@ -15,8 +15,8 @@ router.get('/sobre-nosotros', function (req, res, next) {
   res.render('sobre_nosotros');
 });
 
-router.get('/prueba', function (req, res, next) {
-  res.render('iniciar_sesion');
+router.get('/agregar-paciente', function (req, res, next) {
+  res.render('agregar_paciente');
 });
 
 module.exports = router;
