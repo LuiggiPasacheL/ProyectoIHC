@@ -128,10 +128,27 @@
 
 <body>
   <div class="wrapper">
-    <%- include('./partials/sidebar') %>
+  <div class="sidebar">
+    <h2>Menú</h2>
+     <li><a href="/inicio" style="text-decoration: none;">Inicio</a></li>
+     <li><a href="/inicio" style="text-decoration: none;">Doctores por enfermedad</a></li>
+     <li><a href="/inicio" style="text-decoration: none;">Enfermedades por atender</a></li>
+     <li><a href="/inicio" style="text-decoration: none;">Camas libres</a></li>
+     <li><a href="/inicio" style="text-decoration: none;">Ingresar pacientes</a></li>
+     <li><a href="/inicio" style="text-decoration: none;">Sobre Nosotros</a></li>
+     <li><a href="/" style="text-decoration: none;">Salir</a></li>
+    </div>
       <div class="main_content">
-        <%- include('./partials/header') %>
-      
+      <div class="header" style="padding: 10px;
+                text-align: center; 
+                font-style: normal;
+                font-weight: normal;
+                font-size: 38px;
+                line-height: 45px;
+                color: #000000;
+                left: 37.5%;">Doctor por enfermedad<img src="./img/hospital-logo.png"
+          style="width: 70px; margin-bottom: 10px; margin-left: 700px;">
+        </div>
         <div class="info">
           <div class="container mt-5 bg-white shadow border">
             <div class="row mt-3">
