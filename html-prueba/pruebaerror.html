@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar Asegurado</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js">
+      
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    body {
+      background-color: #f3f5f9;
+    }
+
+    .wrapper {
+      display: flex;
+      position: relative;
+    }
+
+    .wrapper .sidebar {
+      width: 320px;
+      height: 100%;
+      background: #7b7c80;
+      padding: 30px 0px;
+      position: fixed;
+    }
+
+    .wrapper .sidebar h2 {
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .wrapper .sidebar li {
+      padding: 33.5px;
+      border-bottom: 1px solid #bdb8d7;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .wrapper .sidebar li a {
+      color: #fff;
+      display: block;
+    }
+
+    .wrapper .sidebar li a .fas {
+      width: 25px;
+    }
+
+    .wrapper .sidebar li:hover {
+      background-color: #575758;
+    }
+
+    .wrapper .sidebar li:hover a {
+      color: #fff;
+    }
+
+    .wrapper .sidebar .social_media {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+
+    .wrapper .sidebar .social_media a {
+      display: block;
+      width: 40px;
+      background: #575758;
+      height: 40px;
+      line-height: 45px;
+      text-align: center;
+      margin: 0 5px;
+      color: #fff;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .wrapper .main_content {
+      width: 100%;
+      margin-left: 300px;
+    }
+
+    .wrapper .main_content .header {
+      padding: 20px;
+      background: #fff;
+      color: #717171;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    .wrapper .main_content .info {
+      margin: 30px;
+      color: #717171;
+      line-height: 25px;
+    }
+
+    .wrapper .main_content .info div {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      margin: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .boton-ingresar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+    }
+
+    @media (max-height: 500px) {
+      .social_media {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar">
+        <h2>Menú</h2>
+         <li><a href="/inicio" style="text-decoration: none;">Inicio</a></li>
+         <li><a href="/inicio" style="text-decoration: none;">Doctores por enfermedad</a></li>
+         <li><a href="/inicio" style="text-decoration: none;">Enfermedades por atender</a></li>
+         <li><a href="/inicio" style="text-decoration: none;">Camas libres</a></li>
+         <li><a href="/inicio" style="text-decoration: none;">Ingresar pacientes</a></li>
+         <li><a href="/inicio" style="text-decoration: none;">Sobre Nosotros</a></li>
+         <li><a href="/" style="text-decoration: none;">Salir</a></li>
+    </div>
+      <div class="main_content">
+        <div class="header" style="padding: 10px;
+                text-align: center; 
+                font-style: normal;
+                font-weight: normal;
+                font-size: 38px;
+                line-height: 45px;
+                color: #000000;
+                left: 37.5%;">Ingresar Asegurado<img src="img/hospital-logo.png"
+          style="width: 70px; margin-bottom: 10px; margin-left: 700px;">
+</div>
+      
+        <div class="info">
+            <p class="h4">Datos del asegurado(a)</p>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                  <label for="inputnombre" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="inputnombre" placeholder="Ejemplo: Jesus Andres">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputapellidopat" class="form-label">Apellido Paterno</label>
+                  <input type="text" class="form-control" id="inputapellidopat" placeholder="Ejemplo: Lujan">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputapellidomat" class="form-label">Apellido Materno</label>
+                  <input type="text" class="form-control" id="inputapellidomat" placeholder="Ejemplo: Carrión">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputsexo" class="form-label">Sexo</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputciudad" class="form-label">Ciudad</label>
+                  <input type="text" class="form-control" id="inputciudad" placeholder="Ejemplo: Lima">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputdistrito" class="form-label">Distrito</label>
+                    <input type="text" class="form-control" id="inputdistrito" placeholder="Ejemplo: Los Olivos">
+                </div>
+                <div class="col-12">
+                    <label for="inputdireccion" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="inputdireccion" placeholder="Ejemplo: Aija 4900, Calle Las Palmeras 15304">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputtelefono" class="form-label">Telefono</label>
+                    <input type="number" class="form-control" id="inputtelefono" placeholder="Ejemplo: 123456789">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputcorreo" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="inputcorreo" placeholder="Ejemplo: jesuscarrion123456@gmail.com">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputdni" class="form-label">DNI</label>
+                    <input type="number" class="form-control" id="inputdni" placeholder="Ejemplo: 12345678">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputenfermedad" class="form-label">Enfermedad</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar</option>
+                        <option value="1">Enfermedad 1</option>
+                        <option value="2">Enfermedad 2</option>
+                        <option value="2">Enfermedad 3</option>
+                        <option value="2">Enfermedad 4</option>
+                        <option value="2">Enfermedad 5</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="dianac" class="form-label">Dia de nacimiento</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="mesnac" class="form-label">Mes de nacimiento</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="anodac" class="form-label">Año de nacimiento</label>
+                    <input type="number" class="form-control" id="anodac" placeholder="Año">
+                </div>
+                <p class="h4">Datos de los familiares</p>
+                <p class="h6">Pareja</p>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputnombre1" placeholder="Nombres">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputpat1" placeholder="Apellido Paterno">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputmat1" placeholder="Apellido Materno">
+                </div>
+                <div class="col-md-4">
+                    <input type="number" class="form-control" id="inputtelf1" placeholder="Telefono">
+                </div>
+                <div class="col-md-4">
+                    <input type="email" class="form-control" id="inputcorreo1" placeholder="Correo">
+                </div>
+                <div class="col-md-4">
+                    <input type="number" class="form-control" id="inputdni" placeholder="DNI">
+                </div>
+                <p class="h6">Hijo(a)</p>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputnomhijo" placeholder="Nombres">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputapepathijo" placeholder="Apellido Paterno">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="inputapemathijo" placeholder="Apellido Materno">
+                </div>
+                <div class="col-12">
+                    <div class="boton-ingresar">
+                        <button type="submit" class="btn btn-danger">Agregar paciente</button>
+                    </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
