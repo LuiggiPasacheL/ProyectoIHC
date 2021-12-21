@@ -1,18 +1,8 @@
+var express = require('express');
+var router = express.Router();
+var bedController = require('../../controllers/bedController');
 
-const bed = require('../../models/bed')
+router.get('/', bedController.getBeds);
+router.get('/:id', bedController.getBed);
 
-async function getBeds(req, res) {
-    let data = await bed.getBeds()
-    res.send(data)
-}
-
-async function getBed(req, res) {
-    let id = req.params.id
-    let data = await bed.getBedForId(id)
-    res.send(data)
-}
-
-module.exports = {
-    getBeds,
-    getBed
-}
+module.exports = router;

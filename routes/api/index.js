@@ -4,8 +4,8 @@ var router = express.Router();
 
 const usersRouter = require('./users');
 const doctorsRouter = require('./doctors');
-const diseasesRouter = require('./diseases.js');
-const bedsRouter = require('./beds.js');
+const diseasesRouter = require('./diseases');
+const bedsRouter = require('./beds');
 
 router.use('/users', usersRouter);
 router.use('/doctors', doctorsRouter);
