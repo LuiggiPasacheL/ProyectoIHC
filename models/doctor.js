@@ -5,7 +5,7 @@ async function getAllDoctors() {
     return doctors
 }
 
-async function getDoctorsForId(id) {
+async function getDoctorForId(id) {
     let doctor = await query(`SELECT * FROM Doctors WHERE id=${id}`)
     return doctor
 }
@@ -27,7 +27,7 @@ async function deleteDoctor(id) {
 
 module.exports = {
     getAllDoctors,
-    getDoctorsForId,
+    getDoctorForId,
     createDoctor,
     updateDoctor,
     deleteDoctor

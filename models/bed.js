@@ -5,7 +5,7 @@ async function getAllBeds() {
     return beds
 }
 
-async function getBedsForID(id) {
+async function getBedForId(id) {
     let bed = await query(`SELECT * FROM beds WHERE id=${id}`)
     return bed
 }
@@ -27,7 +27,7 @@ async function deleteBed(id) {
 
 module.exports = {
     getAllBeds,
-    getBedsForID,
+    getBedForId,
     createBed,
     updateBed,
     deleteBed
