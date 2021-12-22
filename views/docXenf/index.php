@@ -130,14 +130,14 @@
   <div class="wrapper">
   <div class="sidebar">
     <h2>Menú</h2>
-     <li><a href="/inicio" style="text-decoration: none;">Inicio</a></li>
-     <li><a href="/inicio" style="text-decoration: none;">Doctores por enfermedad</a></li>
-     <li><a href="/inicio" style="text-decoration: none;">Enfermedades por atender</a></li>
-     <li><a href="/inicio" style="text-decoration: none;">Camas libres</a></li>
-     <li><a href="/inicio" style="text-decoration: none;">Ingresar pacientes</a></li>
-     <li><a href="/inicio" style="text-decoration: none;">Sobre Nosotros</a></li>
-     <li><a href="/" style="text-decoration: none;">Salir</a></li>
-    </div>
+    <li><a href="../index.ejs" style="text-decoration: none;">Inicio</a></li>
+       <li><a href="../docXenf/index.php" style="text-decoration: none;">Doctores por enfermedad</a></li>
+       <li><a href="../enfermedad/index.php" style="text-decoration: none;">Enfermedades por atender</a></li>
+       <li><a href="/inicio" style="text-decoration: none;">Camas libres</a></li>
+       <li><a href="../agregar_paciente.ejs" style="text-decoration: none;">Ingresar pacientes</a></li>
+       <li><a href="../sobre_nosotros.ejs" style="text-decoration: none;">Sobre Nosotros</a></li>
+       <li><a href="../iniciar_sesion.ejs" style="text-decoration: none;">Salir</a></li>
+</div>
       <div class="main_content">
       <div class="header" style="padding: 10px;
                 text-align: center; 
