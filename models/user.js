@@ -6,7 +6,7 @@ async function getUserForId(id) {
 }
 
 async function getUserForUsername(username) {
-    let rows = await query(`SElECT * FROM users WHERE username = '${username}'`)
+    let rows = await query(`SElECT * FROM users WHERE username='${username}'`)
     return rows;
 }
 

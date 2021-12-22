@@ -1,12 +1,17 @@
 const user = require('../models/user')
 
 async function loginUser(req, res) {
-    let username = req.body.username
-    let password = req.body.password
-
+    let username = req.body.username.trim()
+    let password = req.body.password.trim()
+    
     let data = await user.getUserForUsername(username)
 
-    res.send(data[0].password === password);
+    if(data[0]){
+        res.send(data[0].password === password);
+    }
+    else{
+        res.send(false);
+    }
 }
 
 async function getUsers(req, res) {
@@ -14,14 +19,7 @@ async function getUsers(req, res) {
     res.send(data);
 }
 
-async function getUser(req, res) {
-    let id = req.params.id
-    let data = await user.getUserForId(id)
-    res.send(data);
-}
-
 module.exports = {
     loginUser,
     getUsers,
-    getUser
 }
