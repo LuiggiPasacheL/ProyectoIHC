@@ -2,13 +2,14 @@
 const doctor = require('../models/doctor')
 
 async function getDoctors(req, res) {
-    let data = await doctor.getDoctors()
-    res.send(data)
+    let data = await doctor.getAllDoctors()
+    res.send(data);
 }
 
 async function getDoctor(req, res) {
-    let id = req.params.id
-    let data = await doctor.getDoctorForId(id)
+    let identificador = req.params.consulta
+    let data = await doctor.getDoctor(identificador)
+    console.log(data)
     res.send(data)
 }
 

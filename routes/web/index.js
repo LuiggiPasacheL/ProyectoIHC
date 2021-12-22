@@ -19,4 +19,8 @@ router.get('/agregar-paciente', function (req, res, next) {
   res.render('agregar_paciente');
 });
 
+router.get('/doctores-enfermedad', function (req, res, next) {
+  res.render('./doctores_enfermedad');
+});
+
 module.exports = router;
