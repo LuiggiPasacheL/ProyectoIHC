@@ -4,6 +4,6 @@ var router = express.Router();
 var diseaseController = require('../../controllers/diseaseController');
 
 router.get('/', diseaseController.getDiseases);
-router.get('/:id', diseaseController.getDisease);
+router.get('/:consulta', diseaseController.getDisease);
 
 module.exports = router;

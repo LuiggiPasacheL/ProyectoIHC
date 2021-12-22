@@ -5,8 +5,8 @@ async function getAllDiseases() {
     return Diseases
 }
 
-async function getDiseaseForId(id) {
-    let Disease = await query(`SELECT * FROM diseases WHERE id=${id}`)
+async function getDisease(consulta) {
+    let Disease = await query(`SELECT * FROM diseases WHERE id LIKE '%${consulta}%' OR name LIKE '%${consulta}%'`)
     return Disease
 }
 
@@ -27,7 +27,7 @@ async function deleteDisease(id) {
 
 module.exports = {
     getAllDiseases,
-    getDiseaseForId,
+    getDisease,
     createDisease,
     updateDisease,
     deleteDisease
