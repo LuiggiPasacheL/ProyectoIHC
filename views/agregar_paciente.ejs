@@ -142,14 +142,14 @@
         <%- include('./partials/header') %>
         <div class="info">
             <p class="h4">Datos del asegurado(a)</p>
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" novalidate action="/agregar_paciente" method="POST">
                 <div class="col-md-6">
                   <label for="inputnombre" class="form-label">Nombres</label>
-                  <input type="text" class="form-control" id="inputnombre" placeholder="Ejemplo: Jesus Andres">
+                  <input type="text" class="form-control" id="inputnombre" placeholder="Ejemplo: Jesus Andres" name ="firstname">
                 </div>
                 <div class="col-md-6">
                   <label for="inputapellidopat" class="form-label">Apellido Paterno</label>
-                  <input type="text" class="form-control" id="inputapellidopat" placeholder="Ejemplo: Lujan">
+                  <input type="text" class="form-control" id="inputapellidopat" placeholder="Ejemplo: Lujan" name ="lastname">
                 </div>
                 <div class="col-md-4">
                   <label for="inputapellidomat" class="form-label">Apellido Materno</label>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="col-md-4">
                   <label for="inputedad" class="form-label">Edad</label>
-                  <input type="number" class="form-control" id="edad" placeholder="Ejemplo: 25">
+                  <input type="number" class="form-control" id="edad" placeholder="Ejemplo: 25" name ="age">
                 </div>
                 <div class="col-md-4">
                     <label for="inputsexo" class="form-label">Sexo</label>

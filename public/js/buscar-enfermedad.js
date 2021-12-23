@@ -1,3 +1,5 @@
+let salida = "";
+let salidaB = "";
 document.addEventListener('DOMContentLoaded',function(){
 
     total_datos();
@@ -8,6 +10,7 @@ document.addEventListener('keyup',function(){
     if(datoBusqueda != ""){
         buscar_datos(datoBusqueda);     
     } else {
+        buffer.clear();
         total_datos();  
     }
 })
@@ -21,7 +24,27 @@ function buscar_datos(consulta) {
         request.send();
         request.onreadystatechange = function() {
             if(request.readyState == 4 && request.status == 200) {
-                   document.querySelector('#datos').innerHTML = request.responseText;
+                
+                
+                salidaB += `<table class="table table-bordered text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Enfermedad</th>
+                  </tr>
+                </thead>
+                <tbody>`
+                let enf = JSON.parse(request.responseText);
+                                for(var i = 0; i<enf.length; i++){
+                                    
+                                    salidaB +=`<tr>
+                            <td>`+enf[i].id+`</td>
+                            <td>`+enf[i].name+`</td>
+                        </tr>`;
+                        
+                                }
+                                salidaB+=`</tbody></table>`
+                                document.querySelector('#datos').innerHTML = salidaB;
             }
         }
 }
@@ -34,7 +57,29 @@ function total_datos() {
         request.send();
         request.onreadystatechange = function() {
             if(request.readyState == 4 && request.status == 200) {
-                   document.querySelector('#datos').innerHTML = request.responseText;
+                
+                
+                salida += `<table class="table table-bordered text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Enfermedad</th>
+                  </tr>
+                </thead>
+                <tbody>`
+                let enf = JSON.parse(request.responseText);
+                                for(var i = 0; i<enf.length; i++){
+                                    
+                                    salida +=`<tr>
+                            <td>`+enf[i].id+`</td>
+                            <td>`+enf[i].name+`</td>
+                        </tr>`;
+                                }
+                                salida+=`</tbody></table>`
+                                document.querySelector('#datos').innerHTML = salida;
+                                
+                                
+                                
             }
         }
 }
