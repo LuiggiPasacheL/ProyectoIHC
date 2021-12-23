@@ -301,6 +301,20 @@
         </div>
       </div>
     </div>
+    <script>
+      async function createPatient(data) {
+      let first_name = '#inputnombre'
+      let last_name = '#inputapellidopat'
+      let age = '#edad'
+      let family_id = null
+      let family_rol = null
+      let bed_id = null
+      let result = await query(`INSERT INTO patients(first_name, last_name, age,
+                            family_id, family_rol, bed_id) VALUES('${first_name}', '${last_name}', 
+                            '${age}', '${family_id}', '${family_rol}', '${bed_id}')`)
+       return result
+      }     
+    </script>
 </body>
 
 </html>
