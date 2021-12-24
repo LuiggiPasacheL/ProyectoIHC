@@ -27,4 +27,8 @@ router.get('/enfermedad', function (req, res, next) {
   res.render('./enfermedad');
 });
 
+router.get('/paciente', function (req, res, next) {
+  res.render('./pacientes');
+});
+
 module.exports = router;

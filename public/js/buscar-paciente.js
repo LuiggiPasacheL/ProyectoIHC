@@ -25,7 +25,7 @@ function buscar_datos(consulta) {
     
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 
-        var ajaxUrl = './api/doctors/'+consulta;
+        var ajaxUrl = './api/patients/'+consulta;
         // var data = 'consulta='+consulta;
         request.open('GET',ajaxUrl,true);
         request.setRequestHeader('Content-type','Application/x-www-form-urlencoded');
@@ -40,16 +40,24 @@ function buscar_datos(consulta) {
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Cod. Familiar</th>
+                    <th scope="col">Relacion</th>
+                    <th scope="col">Cama</th>
                   </tr>
                 </thead>
                 <tbody>`
-                let doc = JSON.parse(request.responseText);
-                                for(var i = 0; i<doc.length; i++){
+                let pac = JSON.parse(request.responseText);
+                                for(var i = 0; i<pac.length; i++){
                                     
                                     salidaB +=`<tr>
-                            <td>`+doc[i].id+`</td>
-                            <td>`+doc[i].first_name+`</td>
-                            <td>`+doc[i].last_name+`</td>
+                            <td>`+pac[i].id+`</td>
+                            <td>`+pac[i].first_name+`</td>
+                            <td>`+pac[i].last_name+`</td>
+                            <td>`+pac[i].age+`</td>
+                            <td>`+pac[i].family_id+`</td>
+                            <td>`+pac[i].family_rol+`</td>
+                            <td>`+pac[i].bed_id+`</td>
                         </tr>`;
                         
                                 }
@@ -66,7 +74,7 @@ function buscar_datos(consulta) {
 function total_datos() {
     
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var ajaxUrl = './api/doctors/';
+        var ajaxUrl = './api/patients/';
         request.open('GET',ajaxUrl,true);
         request.send();
         request.onreadystatechange = function() {
@@ -74,19 +82,27 @@ function total_datos() {
                 salida += `<table class="table table-bordered text-center">
     <thead class="thead-light">
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Año</th>
+      <th scope="col">Cod. Familiar</th>
+      <th scope="col">Relacion</th>
+      <th scope="col">Cama</th>
       </tr>
     </thead>
     <tbody>`
-    let doc = JSON.parse(request.responseText);
-                    for(var i = 0; i<doc.length; i++){
+    let pac = JSON.parse(request.responseText);
+                    for(var i = 0; i<pac.length; i++){
                         
                         salida +=`<tr>
-                <td>`+doc[i].id+`</td>
-                <td>`+doc[i].first_name+`</td>
-                <td>`+doc[i].last_name+`</td>
+                        <td>`+pac[i].id+`</td>
+                        <td>`+pac[i].first_name+`</td>
+                        <td>`+pac[i].last_name+`</td>
+                        <td>`+pac[i].age+`</td>
+                        <td>`+pac[i].family_id+`</td>
+                        <td>`+pac[i].family_rol+`</td>
+                        <td>`+pac[i].bed_id+`</td>
             </tr>`;
                     }
                     salida+=`</tbody></table>`

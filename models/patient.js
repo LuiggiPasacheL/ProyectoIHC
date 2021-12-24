@@ -10,6 +10,11 @@ async function getPatientsForId(id) {
     return patient
 }
 
+async function getPatient(consulta) {
+    let Patient = await query(`SELECT * FROM patients WHERE id LIKE '%${consulta}%' OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' OR age LIKE '%${consulta}%' OR family_id LIKE '%${consulta}%' OR family_rol LIKE '%${consulta}%' OR bed_id LIKE '%${consulta}%'`)
+    return Patient
+}
+
 async function createPatient(data) {
     let first_name = data.first_name
     let last_name = data.last_name
@@ -44,6 +49,7 @@ async function deletePatient(id) {
 
 module.exports = {
     getAllPatients,
+    getPatient,
     getPatientsForId,
     createPatient,
     updatePatient,

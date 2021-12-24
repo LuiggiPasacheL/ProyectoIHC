@@ -1,19 +1,25 @@
 let salida = "";
 let salidaB = "";
+var btn = document.getElementById('btn');
 document.addEventListener('DOMContentLoaded',function(){
-
+    
     total_datos();
-   
+    
 });
-document.addEventListener('keyup',function(){
+btn.addEventListener('click',function(){
     var datoBusqueda = document.querySelector('#busqueda').value;
+    
     if(datoBusqueda != ""){
-        buscar_datos(datoBusqueda);     
+        
+        buscar_datos(datoBusqueda);
+        
     } else {
         buffer.clear();
         total_datos();  
+        
     }
-})
+    
+}, true)
 
 function buscar_datos(consulta) {
     
