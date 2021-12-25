@@ -13,11 +13,11 @@ async function getPatient(req, res) {
     res.send(data)
 }
 
-async function createPatient(req, res){
-    let data = req.body
-
+async function createPatient(req, res) {
+    let data = {}
     data.bed_id = null
     data.disease_id = null
+    data = req.body
 
     let id_patient = await patient.getLastId()
     family_cod = 'fam_' + (id_patient + 1)
@@ -26,7 +26,8 @@ async function createPatient(req, res){
 
     data.family_id = await family.getLastId()
 
-    let result = patient.createPatient(data)
+    let result = await patient.createPatient(data)
+
     res.send(result)
 }
 

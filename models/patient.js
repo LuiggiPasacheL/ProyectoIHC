@@ -12,8 +12,10 @@ async function getPatientsForId(id) {
 
 async function getPatient(consulta) {
     let Patient = await query(`SELECT * FROM patients WHERE id LIKE '%${consulta}%' 
-    OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' OR age LIKE '%${consulta}%' 
-    OR family_id LIKE '%${consulta}%' OR family_rol LIKE '%${consulta}%' OR bed_id LIKE '%${consulta}%'`)
+    OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' OR family_id LIKE '%${consulta}%'
+    OR gender LIKE '%${consulta}%' OR city LIKE '%${consulta}%' OR district LIKE '%${consulta}%' 
+    OR direction LIKE '%${consulta}%' OR telephone LIKE '%${consulta}%' OR email LIKE '%${consulta}%' 
+    OR DNI LIKE '%${consulta}%'`)
 
     return Patient
 }
@@ -41,12 +43,16 @@ async function createPatient(data) {
     let bed_id = data.bed_id
     let disease_id = data.disease_id
 
-    let result = await query(`INSERT INTO patients(first_name, last_name, gender, city, district, 
-    direction, telephone, email, dni, date_birth, family_id, bed_id, disease_id) 
-    VALUES('${first_name}', '${last_name}', '${gender}', '${city}', '${district}', '${direction}', '${telephone}',
-    '${email}', '${dni}', '${date_birth}', ${family_id}, ${bed_id}, ${disease_id})`)
+    try{
+        let result = await query(`INSERT INTO patients(first_name, last_name, gender, city, district, 
+        direction, telephone, email, dni, date_birth, family_id, bed_id, disease_id) 
+        VALUES('${first_name}', '${last_name}', '${gender}', '${city}', '${district}', '${direction}', '${telephone}',
+        '${email}', '${dni}', '${date_birth}', ${family_id}, ${bed_id}, ${disease_id})`)
 
-    return result
+        return true
+    }catch(e){
+        return false
+    }
 }
 
 async function updatePatient(id, data) {
