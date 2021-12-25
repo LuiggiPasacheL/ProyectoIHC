@@ -10,6 +10,16 @@ async function getFamiliesForId(id) {
     return family
 }
 
+async function getLastId(id){
+    let data = await query(`SELECT * FROM families ORDER BY id DESC LIMIT 1`)
+    if(data){
+        return data[0].id
+    }
+    else{
+        return 0
+    }
+}
+
 async function createFamily(cod) {
     let result = await query(`INSERT INTO families(cod) VALUES('${cod}')`)
     return result
@@ -30,5 +40,6 @@ module.exports = {
     getFamiliesForId,
     createFamily,
     updateFamily,
-    deleteFamily
+    deleteFamily,
+    getLastId
 }

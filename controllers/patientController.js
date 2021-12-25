@@ -1,5 +1,6 @@
 
 const patient = require('../models/patient')
+const family = require('../models/family')
 
 async function getPatients(req, res) {
     let data = await patient.getAllPatients()
@@ -12,7 +13,25 @@ async function getPatient(req, res) {
     res.send(data)
 }
 
+async function createPatient(req, res){
+    let data = req.body
+
+    data.bed_id = null
+    data.disease_id = null
+
+    let id_patient = await patient.getLastId()
+    family_cod = 'fam_' + (id_patient + 1)
+
+    await family.createFamily(family_cod)
+
+    data.family_id = await family.getLastId()
+
+    let result = patient.createPatient(data)
+    res.send(result)
+}
+
 module.exports = {
     getPatients,
-    getPatient
+    getPatient,
+    createPatient
 }

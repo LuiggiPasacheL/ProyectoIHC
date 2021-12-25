@@ -17,6 +17,9 @@ CREATE TABLE families (
 CREATE TABLE beds (
     id INT PRIMARY KEY AUTO_INCREMENT,
     cod VARCHAR(30)
+);CREATE TABLE diseases (
+    id int auto_increment primary key,
+    name varchar(30) NOT NULL
 );
 
 CREATE TABLE patients (
@@ -45,10 +48,7 @@ CREATE TABLE doctors (
     last_name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE diseases (
-    id int auto_increment primary key,
-    name varchar(30) NOT NULL
-);
+
 
 CREATE TABLE patients_doctors (
     id INT AUTO_INCREMENT PRIMARY KEY,
