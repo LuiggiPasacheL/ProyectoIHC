@@ -93,4 +93,4 @@ insert into doctors (first_name, last_name) values ('Elaine', 'Dossetter');
 
 insert into diseases (name) values ('Bronquitis aguda'), ('Sinusitis'), ('Infección urinaria');
 
-insert into users (unsername, password) values ('admin', '123456');
+insert into users (username, password) values ('admin', '123456');
