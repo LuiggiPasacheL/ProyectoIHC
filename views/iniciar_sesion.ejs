@@ -5,11 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        
+
     <style>
         #Titulo {
             padding: 30px;
@@ -35,10 +35,11 @@
             align-items: center;
             padding: 20px;
         }
-        body{
-        background-image: url('/img/fondologinv2.jpg');
-        background-size: 100% 100%;
-        background-attachment: fixed;
+
+        body {
+            background-image: url('/img/fondologinv2.jpg');
+            background-size: 100% 100%;
+            background-attachment: fixed;
         }
     </style>
     <title>Ingresar</title>
@@ -69,31 +70,34 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
-                <form method="get" action="#">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Usuario:</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Usuario"
-                            style="background-color: #C4C4C4;">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña"
-                            style="background-color: #C4C4C4;">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Recordar mi sesión</label>
-                    </div>
-                    <div class="boton-ingresar">
-                        <button id="btn-ingresar" type="submit" class="btn btn-danger">Ingresar</button>
-                    </div>
-                </form>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Usuario:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Usuario"
+                        style="background-color: #C4C4C4;">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña"
+                        style="background-color: #C4C4C4;">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Recordar mi sesión</label>
+                </div>
+                <div class="boton-ingresar">
+                    <button id="btn-ingresar" class="btn btn-danger">Ingresar</button>
+                </div>
             </div>
         </div>
     </div>
 
 
     <script>
+
+        window.onload = function () {
+            document.getElementById("exampleFormControlInput1").focus();
+        }
+
         function iniciarSesion() {
             let username = document.getElementById("exampleFormControlInput1").value;
             let password = document.getElementById("exampleInputPassword1").value;
@@ -107,11 +111,13 @@
             request.onreadystatechange = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     console.log(request.responseText);
-                    if(request.responseText == "true"){
+                    if (request.responseText == "true") {
                         window.location.replace("./inicio");
                     }
-                    else{
+                    else {
                         alert("Credenciales incorrectas");
+                        document.getElementById("exampleInputPassword1").value = "";
+                        document.getElementById("exampleFormControlInput1").focus();
                     }
                 }
             }
