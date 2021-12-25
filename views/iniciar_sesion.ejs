@@ -125,6 +125,13 @@
 
         let btn = document.getElementById("btn-ingresar");
         btn.addEventListener("click", iniciarSesion, true);
+
+        let inputPassword = document.getElementById("exampleInputPassword1");
+        inputPassword.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                iniciarSesion()
+            }
+        },true);
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
