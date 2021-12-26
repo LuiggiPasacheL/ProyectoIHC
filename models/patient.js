@@ -43,16 +43,14 @@ async function createPatient(data) {
     let bed_id = data.bed_id
     let disease_id = data.disease_id
 
-    try{
-        let result = await query(`INSERT INTO patients(first_name, last_name, gender, city, district, 
-        direction, telephone, email, dni, date_birth, family_id, bed_id, disease_id) 
-        VALUES('${first_name}', '${last_name}', '${gender}', '${city}', '${district}', '${direction}', '${telephone}',
-        '${email}', '${dni}', '${date_birth}', ${family_id}, ${bed_id}, ${disease_id})`)
+    console.log(data);
 
-        return true
-    }catch(e){
-        return false
-    }
+    let result = await query(`INSERT INTO patients(first_name, last_name, gender, city, district, 
+    direction, telephone, email, dni, date_birth, family_id, bed_id, disease_id) 
+    VALUES('${first_name}', '${last_name}', '${gender}', '${city}', '${district}', '${direction}', '${telephone}',
+    '${email}', '${dni}', '${date_birth}', ${family_id}, ${bed_id}, ${disease_id})`)
+
+    return result
 }
 
 async function updatePatient(id, data) {
