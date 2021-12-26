@@ -48,8 +48,6 @@ CREATE TABLE doctors (
     last_name VARCHAR(30) NOT NULL
 );
 
-
-
 CREATE TABLE patients_doctors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
@@ -59,7 +57,7 @@ CREATE TABLE patients_doctors (
 );
 
 CREATE TABLE specialities (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
     doctor_id INT,
     FOREIGN KEY (doctor_id) REFERENCES doctors(id)

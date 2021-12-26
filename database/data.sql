@@ -1,9 +1,13 @@
 
 -- inserciones
 insert into doctors (first_name, last_name) values ('Merla', 'Havvock');
+insert into specialities (name, doctor_id) values ('Cardiologia', 1);
 insert into doctors (first_name, last_name) values ('Lindsay', 'Tregunnah');
+insert into specialities (name, doctor_id) values ('Cardiologia', 2);
 insert into doctors (first_name, last_name) values ('Andrus', 'Nannini');
+insert into specialities (name, doctor_id) values ('Pediatria', 3);
 insert into doctors (first_name, last_name) values ('Issi', 'Lippiello');
+insert into specialities (name, doctor_id) values ('Medicina interna', 4);
 insert into doctors (first_name, last_name) values ('Nerty', 'Ree');
 insert into doctors (first_name, last_name) values ('Nicol', 'Escudier');
 insert into doctors (first_name, last_name) values ('Hal', 'Iacovino');
