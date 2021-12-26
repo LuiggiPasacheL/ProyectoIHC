@@ -74,7 +74,7 @@ function buscar_datos(consulta) {
                 </thead>
                 <tbody>
                 <tr>
-            <td colspan="3" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+            <td colspan="4" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
         </tr>
                 </tbody></table>`
             document.querySelector('#datos').innerHTML = salidaC;

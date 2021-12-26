@@ -142,7 +142,7 @@
         <%- include('./partials/header') %>
         <div class="info">
             <p class="h4">Datos del paciente(a)</p>
-            <form class="row g-3 needs-validation" novalidate action="/agregar_paciente" method="POST">
+            <form class="row g-3 needs-validation">
                 <div class="col-md-6">
                   <label for="inputnombre" class="form-label">Nombres</label>
                   <input type="text" class="form-control" id="inputnombre" placeholder="Ejemplo: Jesus Andres" name ="firstname">
@@ -156,12 +156,8 @@
                   <input type="text" class="form-control" id="inputapellidomat" placeholder="Ejemplo: Carrión">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputedad" class="form-label">Edad</label>
-                  <input type="number" class="form-control" id="edad" placeholder="Ejemplo: 25" name ="age">
-                </div>
-                <div class="col-md-4">
                     <label for="inputsexo" class="form-label">Sexo</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" id="idsexo">
                         <option selected>Seleccionar</option>
                         <option value="1">Masculino</option>
                         <option value="2">Femenino</option>
@@ -193,19 +189,19 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputenfermedad" class="form-label">Enfermedad</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" id="enfermedad">
                         <option selected>Seleccionar</option>
-                        <option value="1">Enfermedad 1</option>
-                        <option value="2">Enfermedad 2</option>
-                        <option value="2">Enfermedad 3</option>
-                        <option value="2">Enfermedad 4</option>
-                        <option value="2">Enfermedad 5</option>
+                        <option value="1">Bronquitis aguda'</option>
+                        <option value="2">Sinusitis</option>
+                        <option value="3">Infección urinaria</option>
+                        <option value="4">Asma</option>
+                        <option value="5">Neumonia</option>
                     </select>
                 </div>
                 
                 <div class="col-md-2">
                     <label for="dianac" class="form-label">Dia de nacimiento</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" id="dia">
                         <option selected>Seleccionar</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -242,7 +238,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="mesnac" class="form-label">Mes de nacimiento</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" id="mes">
                         <option selected>Seleccionar</option>
                         <option value="1">Enero</option>
                         <option value="2">Febrero</option>
@@ -294,7 +290,7 @@
                 </div>
                 <div class="col-12">
                     <div class="boton-ingresar">
-                        <button type="submit" class="btn btn-danger">Agregar paciente</button>
+                        <button id= "btn_a"  class="btn btn-danger">Agregar paciente</button>
                     </div>
                 </div>
               </form>
@@ -302,18 +298,66 @@
       </div>
     </div>
     <script>
-      async function createPatient(data) {
-      let first_name = '#inputnombre'
-      let last_name = '#inputapellidopat'
-      let age = '#edad'
-      let family_id = null
-      let family_rol = null
-      let bed_id = null
-      let result = await query(`INSERT INTO patients(first_name, last_name, age,
-                            family_id, family_rol, bed_id) VALUES('${first_name}', '${last_name}', 
-                            '${age}', '${family_id}', '${family_rol}', '${bed_id}')`)
-       return result
-      }     
+      
+      function agregar(){
+        let first_name = document.getElementById("inputnombre").value;
+        let last_name = document.getElementById("inputapellidopat").value;
+        let idgender = document.getElementById("idsexo");
+        let gender = idgender.options[idgender.selectedIndex].text;
+        let city = document.getElementById("inputciudad").value;
+        let district = document.getElementById("inputdistrito").value;
+        let direction = document.getElementById("inputdireccion").value;
+        let telephone = document.getElementById("inputtelefono").value;
+        let email = document.getElementById("inputcorreo").value;
+        let dni = document.getElementById("inputdni").value;
+        let iddia = document.getElementById("dia");
+        let dia = iddia.options[iddia.selectedIndex].value;
+        let idmes = document.getElementById("mes");
+        let mes = idmes.options[idmes.selectedIndex].value;
+        let año = document.getElementById("anodac").value;
+        let date_birth = new Date(año, mes, dia).value;
+        let iddisease = document.getElementById("enfermedad");
+        let disease = iddisease.options[iddisease.selectedIndex].value;
+        let family = 1
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("first_name", first_name);
+        urlencoded.append("last_name", last_name);
+        urlencoded.append("gender", gender);
+        urlencoded.append("city", city);
+        urlencoded.append("district", district);
+        urlencoded.append("direction", direction);
+        urlencoded.append("telephone", telephone);
+        urlencoded.append("email", email);
+        urlencoded.append("dni", dni);
+        urlencoded.append("date_birth", date_birth);
+        urlencoded.append("disease_id", disease);
+        urlencoded.append("family_id", family);
+
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: 'follow'
+        };
+
+        fetch("localhost:5000/api/patients/add", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+      }
+
+
+      var btn = document.getElementById('btn_a');
+      btn.addEventListener('click', agregar, true);
+
+
+      
+      
     </script>
 </body>
 
