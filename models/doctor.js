@@ -14,8 +14,11 @@ async function getDoctorForId(id) {
 }
 
 async function getDoctor(identificador) {
-    let doctor = await query(`SELECT * FROM doctors WHERE first_name LIKE '%${identificador}%' 
-                        OR last_name LIKE '%${identificador}%'`)
+    let doctor = await query(`select doctors.id, first_name, last_name, 
+	ifnull(group_concat(name), "General") as specialities
+    from doctors left join specialities on doctor_id = doctors.id
+    WHERE first_name LIKE '%${identificador}%' OR last_name LIKE '%${identificador}%'
+    group by doctors.id`)
     return doctor
 }
 
