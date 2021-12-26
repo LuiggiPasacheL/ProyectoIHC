@@ -1,5 +1,6 @@
 let salida = "";
 let salidaB = "";
+let salidaC = "";
 var btn = document.getElementById('btn');
 document.addEventListener('DOMContentLoaded',function(){
     
@@ -15,7 +16,7 @@ btn.addEventListener('click',function(){
         
     } else {
         buffer.clear();
-        total_datos();  
+        total_datos();
         
     }
     
@@ -59,6 +60,25 @@ function buscar_datos(consulta) {
                                 
                                 
             }
+            if(JSON.parse(request.responseText) == 0){
+                salidaC = `<table class="table table-bordered text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+            <td colspan="3" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+        </tr>
+                </tbody></table>`
+                document.querySelector('#datos').innerHTML = salidaC;  
+        
+            }
+            
+            
             
         }
 }
