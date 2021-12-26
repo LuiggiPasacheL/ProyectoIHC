@@ -298,7 +298,7 @@
       </div>
     </div>
     <script>
-      var btn = document.getElementById('btn_a');
+      
       function agregar(){
         let first_name = document.getElementById("inputnombre").value;
         let last_name = document.getElementById("inputapellidopat").value;
@@ -310,9 +310,9 @@
         let telephone = document.getElementById("inputtelefono").value;
         let email = document.getElementById("inputcorreo").value;
         let dni = document.getElementById("inputdni").value;
-        let iddia = document.getElementById("iddia");
+        let iddia = document.getElementById("dia");
         let dia = iddia.options[iddia.selectedIndex].value;
-        let idmes = document.getElementById("idmes");
+        let idmes = document.getElementById("mes");
         let mes = idmes.options[idmes.selectedIndex].value;
         let año = document.getElementById("anodac").value;
         let date_birth = new Date(año, mes, dia).value;
@@ -328,7 +328,7 @@
         urlencoded.append("last_name", last_name);
         urlencoded.append("gender", gender);
         urlencoded.append("city", city);
-        rlencoded.append("district", district);
+        urlencoded.append("district", district);
         urlencoded.append("direction", direction);
         urlencoded.append("telephone", telephone);
         urlencoded.append("email", email);
@@ -352,8 +352,8 @@
       }
 
 
-
-      btn.addEventListener('click', agregar(), true);
+      var btn = document.getElementById('btn_a');
+      btn.addEventListener('click', agregar, true);
 
 
       
