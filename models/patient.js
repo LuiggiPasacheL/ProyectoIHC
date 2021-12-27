@@ -1,7 +1,9 @@
 const query = require('../database/database')
 
 async function getAllPatients() {
-    let patients = await query('SELECT * FROM patients');
+    let patients = await query(`SELECT patients.id, first_name, last_name, DNI, email, direction, family_id, ifnull(bed_id, 'sin cama') as bed_id, 
+    ifnull(diseases.name, 'sin enfermedades') as disease_id
+    FROM patients left join diseases on diseases.id = disease_id`);
     return patients
 }
 

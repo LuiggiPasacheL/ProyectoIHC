@@ -18,7 +18,7 @@ async function createPatient(req, res) {
     data = {...req.body, bed_id:null, disease_id:null}
 
     let id_patient = await patient.getLastId()
-    family_cod = 'fam_' + (id_patient + 1)
+    let family_cod = 'fam_' + (id_patient + 1)
 
     await family.createFamily(family_cod)
 

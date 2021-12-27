@@ -45,7 +45,7 @@ function buscar_datos(consulta) {
                     <th scope="col">Correo</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">Enfermedad </th>
-                    <th scope="col">Familiar</th>
+                    <th scope="col">Codigo de familia</th>
                     <th scope="col">Cama</th>
                     <th scope="col">Acción</th>
                   </tr>
@@ -86,7 +86,7 @@ function buscar_datos(consulta) {
                   <th scope="col">Correo</th>
                   <th scope="col">Dirección</th>
                   <th scope="col">Enfermedad </th>
-                  <th scope="col">Familiar</th>
+                  <th scope="col">Codigo de familia</th>
                   <th scope="col">Cama</th>
                   <th scope="col">Acción</th>
                   </tr>
@@ -122,7 +122,7 @@ function total_datos() {
                   <th scope="col">Correo</th>
                   <th scope="col">Dirección</th>
                   <th scope="col">Enfermedad </th>
-                  <th scope="col">Familiar</th>
+                  <th scope="col">Codigo de familia</th>
                   <th scope="col">Cama</th>
       </tr>
     </thead>

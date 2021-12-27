@@ -2,7 +2,6 @@ var express = require('express');
 const { resourceLimits } = require('worker_threads');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('iniciar_sesion');
 });
