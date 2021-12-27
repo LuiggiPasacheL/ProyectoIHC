@@ -29,8 +29,21 @@ async function createPatient(req, res) {
     res.send(result)
 }
 
+async function deletePatient(req, res) {
+    let id = req.params.id
+    try{
+        let result = await patient.deletePatient(id)
+        console.log(result)
+        res.send(true)
+    }catch(e){
+        console.log(e)
+        res.send(false)
+    }
+}
+
 module.exports = {
     getPatients,
     getPatient,
-    createPatient
+    createPatient,
+    deletePatient
 }

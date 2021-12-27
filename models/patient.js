@@ -69,7 +69,7 @@ async function updatePatient(id, data) {
 }
 
 async function deletePatient(id) {
-    let result = await query(`DELETE patients WHERE id='${id}'`)
+    let result = await query(`DELETE FROM patients WHERE id=${id}`)
     return result
 }
 
