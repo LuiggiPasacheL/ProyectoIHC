@@ -41,10 +41,13 @@ function buscar_datos(consulta) {
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">Cod. Familiar</th>
-                    <th scope="col">Relacion</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Enfermedad </th>
+                    <th scope="col">Familiar</th>
                     <th scope="col">Cama</th>
+                    <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -55,10 +58,13 @@ function buscar_datos(consulta) {
                             <td>`+pac[i].id+`</td>
                             <td>`+pac[i].first_name+`</td>
                             <td>`+pac[i].last_name+`</td>
-                            <td>`+pac[i].age+`</td>
+                            <td>`+pac[i].DNI+`</td>
+                            <td>`+pac[i].email+`</td>
+                            <td>`+pac[i].direction+`</td>
+                            <td>`+pac[i].disease_id+`</td>
                             <td>`+pac[i].family_id+`</td>
-                            <td>`+pac[i].family_rol+`</td>
                             <td>`+pac[i].bed_id+`</td>
+                            <td><button id="btn-eliminar" class="btn btn-danger">Eliminar</button></td>
                         </tr>`;
                         
                                 }
@@ -72,18 +78,22 @@ function buscar_datos(consulta) {
                 salidaC = `<table class="table table-bordered text-center">
                 <thead class="thead-light">
                   <tr>
+
                   <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">Cod. Familiar</th>
-                    <th scope="col">Relacion</th>
-                    <th scope="col">Cama</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Enfermedad </th>
+                  <th scope="col">Familiar</th>
+                  <th scope="col">Cama</th>
+                  <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                 <tr>
-            <td colspan="3" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+            <td colspan="10" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
         </tr>
                 </tbody></table>`
                 document.querySelector('#datos').innerHTML = salidaC;  
@@ -104,13 +114,16 @@ function total_datos() {
                 salida += `<table class="table table-bordered text-center">
     <thead class="thead-light">
       <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Año</th>
-      <th scope="col">Cod. Familiar</th>
-      <th scope="col">Relacion</th>
-      <th scope="col">Cama</th>
+
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Enfermedad </th>
+                  <th scope="col">Familiar</th>
+                  <th scope="col">Cama</th>
       </tr>
     </thead>
     <tbody>`
@@ -119,12 +132,14 @@ function total_datos() {
                         
                         salida +=`<tr>
                         <td>`+pac[i].id+`</td>
-                        <td>`+pac[i].first_name+`</td>
-                        <td>`+pac[i].last_name+`</td>
-                        <td>`+pac[i].age+`</td>
-                        <td>`+pac[i].family_id+`</td>
-                        <td>`+pac[i].family_rol+`</td>
-                        <td>`+pac[i].bed_id+`</td>
+                            <td>`+pac[i].first_name+`</td>
+                            <td>`+pac[i].last_name+`</td>
+                            <td>`+pac[i].DNI+`</td>
+                            <td>`+pac[i].email+`</td>
+                            <td>`+pac[i].direction+`</td>
+                            <td>`+pac[i].disease_id+`</td>
+                            <td>`+pac[i].family_id+`</td>
+                            <td>`+pac[i].bed_id+`</td>
             </tr>`;
                     }
                     salida+=`</tbody></table>`
