@@ -47,7 +47,7 @@ function buscar_datos(consulta) {
                     <th scope="col">Enfermedad </th>
                     <th scope="col">Codigo de familia</th>
                     <th scope="col">Cama</th>
-                    <th scope="col">Acción</th>
+                    
                   </tr>
                 </thead>
                 <tbody>`
@@ -64,7 +64,7 @@ function buscar_datos(consulta) {
                             <td>`+pac[i].disease_id+`</td>
                             <td>`+pac[i].family_id+`</td>
                             <td>`+pac[i].bed_id+`</td>
-                            <td><a id="btn-eliminar" href="./paciente" class="btn btn-danger">Eliminar</a></td>
+                            
                             </tr>`;
 
                                 }
@@ -91,12 +91,12 @@ function buscar_datos(consulta) {
                   <th scope="col">Enfermedad </th>
                   <th scope="col">Codigo de familia</th>
                   <th scope="col">Cama</th>
-                  <th scope="col">Acción</th>
+                  
                   </tr>
                 </thead>
                 <tbody>
                 <tr>
-            <td colspan="10" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+            <td colspan="9" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
         </tr>
                 </tbody></table>`
                 document.querySelector('#datos').innerHTML = salidaC;  
@@ -178,9 +178,10 @@ function eliminar(paciente_id){
 }
 
 */
+/*
 var btn = document.getElementById('btn-eliminar');
 btn.addEventListener('click',function(){
     console.log("eliminar");
     
     
-}, true)
+}, true)*/
