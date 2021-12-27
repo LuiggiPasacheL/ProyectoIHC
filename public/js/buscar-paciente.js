@@ -47,6 +47,7 @@ function buscar_datos(consulta) {
                     <th scope="col">Enfermedad </th>
                     <th scope="col">Familiar</th>
                     <th scope="col">Cama</th>
+                    <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -63,6 +64,7 @@ function buscar_datos(consulta) {
                             <td>`+pac[i].disease_id+`</td>
                             <td>`+pac[i].family_id+`</td>
                             <td>`+pac[i].bed_id+`</td>
+                            <td><button id="btn-eliminar" class="btn btn-danger">Eliminar</button></td>
                         </tr>`;
                         
                                 }
@@ -86,11 +88,12 @@ function buscar_datos(consulta) {
                   <th scope="col">Enfermedad </th>
                   <th scope="col">Familiar</th>
                   <th scope="col">Cama</th>
+                  <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                 <tr>
-            <td colspan="9" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+            <td colspan="10" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
         </tr>
                 </tbody></table>`
                 document.querySelector('#datos').innerHTML = salidaC;  

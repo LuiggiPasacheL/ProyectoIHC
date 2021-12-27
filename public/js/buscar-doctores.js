@@ -2,6 +2,7 @@ let salida = "";
 let salidaB = "";
 let salidaC = "";
 var btn = document.getElementById('btn');
+
 document.addEventListener('DOMContentLoaded', function () {
 
     total_datos();
@@ -42,10 +43,12 @@ function buscar_datos(consulta) {
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Especialidades</th>
+                    
                   </tr>
                 </thead>
                 <tbody>`
             let doc = JSON.parse(request.responseText);
+            
             for (var i = 0; i < doc.length; i++) {
 
                 salidaB += `<tr>
@@ -53,6 +56,7 @@ function buscar_datos(consulta) {
                             <td>`+ doc[i].first_name + `</td>
                             <td>`+ doc[i].last_name + `</td>
                             <td>`+ doc[i].specialities + `</td>
+                            
                         </tr>`;
 
             }
@@ -70,6 +74,7 @@ function buscar_datos(consulta) {
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Especialidades</th>
+                    <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
