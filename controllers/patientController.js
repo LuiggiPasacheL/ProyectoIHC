@@ -31,14 +31,8 @@ async function createPatient(req, res) {
 
 async function deletePatient(req, res) {
     let id = req.params.id
-    try{
-        let result = await patient.deletePatient(id)
-        console.log(result)
-        res.send(true)
-    }catch(e){
-        console.log(e)
-        res.send(false)
-    }
+    let result = await patient.deletePatient(id)
+    res.send(result.affectedRows > 0)
 }
 
 module.exports = {
