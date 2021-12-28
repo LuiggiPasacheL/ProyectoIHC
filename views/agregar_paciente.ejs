@@ -303,6 +303,30 @@
   </div>
   <script>
 
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch("./api/diseases/", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+
+        var res = JSON.parse(result);
+
+        console.log(res)
+
+        var html = `<option selected>Seleccionar</option>`
+
+        for(let i = 0; i < res.length; i++){
+          html += `<option value="${res[i].id}">${res[i].name}</option>`
+        }
+
+        document.getElementById("enfermedad").innerHTML = html
+        
+      })
+      .catch(error => console.log('error', error));
+
     function agregar() {
       let first_name = document.getElementById("inputnombre").value;
       let last_name = document.getElementById("inputapellidopat").value;

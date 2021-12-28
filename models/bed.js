@@ -25,10 +25,21 @@ async function deleteBed(id) {
     return result
 }
 
+async function getLastId(){
+    let data = await query(`SELECT * FROM beds ORDER BY id DESC LIMIT 1`)
+    if(data){
+        return data[0].id
+    }
+    else{
+        return 0
+    }
+}
+
 module.exports = {
     getAllBeds,
     getBedForId,
     createBed,
     updateBed,
-    deleteBed
+    deleteBed,
+    getLastId
 }

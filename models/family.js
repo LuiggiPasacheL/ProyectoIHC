@@ -10,7 +10,7 @@ async function getFamiliesForId(id) {
     return family
 }
 
-async function getLastId(id){
+async function getLastId(){
     let data = await query(`SELECT * FROM families ORDER BY id DESC LIMIT 1`)
     if(data){
         return data[0].id
@@ -21,6 +21,13 @@ async function getLastId(id){
 }
 
 async function createFamily(cod) {
+    // pareja_first_name 
+    // pareja_last_name 
+    // pareja_telephone 
+    // pareja_email 
+    // pareja_dni 
+    // hijo_first_name 
+    // hijo_last_name
     let result = await query(`INSERT INTO families(cod) VALUES('${cod}')`)
     return result
 }

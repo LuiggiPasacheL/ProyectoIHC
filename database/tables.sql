@@ -11,7 +11,14 @@ CREATE TABLE users (
 
 CREATE TABLE families (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    cod VARCHAR(30) NOT NULL
+    cod VARCHAR(30) NOT NULL,
+    pareja_first_name VARCHAR(30),
+    pareja_last_name VARCHAR(30),
+    pareja_telephone VARCHAR(30),
+    pareja_email VARCHAR(40),
+    pareja_dni VARCHAR(40),
+    hijo_first_name VARCHAR(30),
+    hijo_last_name VARCHAR(30)
 );
 
 CREATE TABLE beds (
