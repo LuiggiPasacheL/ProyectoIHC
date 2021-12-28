@@ -347,6 +347,16 @@
       let iddisease = document.getElementById("enfermedad");
       let disease = iddisease.options[iddisease.selectedIndex].value;
 
+      let inputnombre1 = document.getElementById("inputnombre1").value;
+      let inputpat1 = document.getElementById("inputpat1").value;
+      let inputmat1 = document.getElementById("inputmat1").value;
+      let inputtelf1 = document.getElementById("inputtelf1").value;
+      let inputcorreo1 = document.getElementById("inputcorreo1").value;
+      let inputdni = document.getElementById("inputdni").value;
+      let inputnomhijo = document.getElementById("inputnomhijo").value;
+      let inputapepathijo = document.getElementById("inputapepathijo").value;
+      let inputapemathijo = document.getElementById("inputapemathijo").value;
+
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -362,6 +372,14 @@
       urlencoded.append("dni", dni);
       urlencoded.append("date_birth", date_birth);
       urlencoded.append("disease_id", disease);
+
+      urlencoded.append("pareja_first_name", inputnombre1);
+      urlencoded.append("pareja_last_name", inputmat1);
+      urlencoded.append("pareja_telephone", inputtelf1);
+      urlencoded.append("pareja_email", inputcorreo1);
+      urlencoded.append("pareja_dni", inputdni);
+      urlencoded.append("hijo_first_name", inputnomhijo);
+      urlencoded.append("hijo_last_name", inputapepathijo);
 
       var requestOptions = {
         method: 'POST',

@@ -82,36 +82,11 @@ INSERT INTO beds (id, cod) VALUES ('28', '28');
 INSERT INTO beds (id, cod) VALUES ('29', '29');
 INSERT INTO beds (id, cod) VALUES ('30', '30');
 
-INSERT INTO families (id, cod) VALUES ('22', 'Aarón');
-INSERT INTO families (id, cod) VALUES ('23', 'Abdul');
-INSERT INTO families (id, cod) VALUES ('24', 'Abel');
-INSERT INTO families (id, cod) VALUES ('25', 'Abelardo');
-INSERT INTO families (id, cod) VALUES ('26', 'Abraham');
-INSERT INTO families (id, cod) VALUES ('27', 'Adam');
-INSERT INTO families (id, cod) VALUES ('28', 'Adolfo');
-INSERT INTO families (id, cod) VALUES ('29', 'Adrián');
-INSERT INTO families (id, cod) VALUES ('30', 'Agustín');
-INSERT INTO families (id, cod) VALUES ('31', 'Aladino');
-INSERT INTO families (id, cod) VALUES ('32', 'Alan');
-INSERT INTO families (id, cod) VALUES ('33', 'Alberto');
-INSERT INTO families (id, cod) VALUES ('34', 'Alejandro');
-INSERT INTO families (id, cod) VALUES ('35', 'Alessandro');
-INSERT INTO families (id, cod) VALUES ('36', 'Alexis');
-INSERT INTO families (id, cod) VALUES ('37', 'Alfonso');
-INSERT INTO families (id, cod) VALUES ('38', 'Bartolomé');
-INSERT INTO families (id, cod) VALUES ('39', 'Belisario');
-INSERT INTO families (id, cod) VALUES ('40', 'Benjamín');
-INSERT INTO families (id, cod) VALUES ('41', 'Benedicto');
-INSERT INTO families (id, cod) VALUES ('42', 'Brian');
-INSERT INTO families (id, cod) VALUES ('43', 'Casimiro');
-INSERT INTO families (id, cod) VALUES ('44', 'César');
-INSERT INTO families (id, cod) VALUES ('45', 'Christian');
-INSERT INTO families (id, cod) VALUES ('46', 'Claudio');
-INSERT INTO families (id, cod) VALUES ('47', 'Constantino');
-INSERT INTO families (id, cod) VALUES ('48', 'Cristóbal');
-INSERT INTO families (id, cod) VALUES ('49', 'Domingo');
-INSERT INTO families (id, cod) VALUES ('50', 'Eduardo');
-INSERT INTO families (id, cod) VALUES ('51', 'Elías');
+/* AGREGAR 
+INSERT INTO families(cod, pareja_first_name , pareja_last_name ,
+    pareja_telephone , pareja_email , pareja_dni , hijo_first_name , hijo_last_name)
+    VALUES('${cod}', '${pareja_first_name}', '${pareja_last_name}', '${pareja_telephone}',
+    '${pareja_email}', '${pareja_dni}', '${hijo_first_name}', '${hijo_last_name}')*/
 
 /*
 INSERT INTO `patients` (`id`, `first_name`, `last_name`, `gender`, `city`, `district`, `direction`, `telephone`, `email`, `DNI`, `date_birth`, `family_id`, `bed_id`, `disease_id`) VALUES (NULL, 'Pedro', 'Valencia', 'Masculino', 'Lima', 'Surco', 'Calle Cannevaro', '987456254', 'raul@gmail.com', '74109345', '2009-10-07', '48', '5', '2');

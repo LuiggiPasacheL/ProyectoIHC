@@ -1,9 +1,11 @@
 const query = require('../database/database')
 
 async function getAllPatients() {
-    let patients = await query(`SELECT patients.id, first_name, last_name, DNI, email, direction, family_id, ifnull(bed_id, 'sin cama') as bed_id, 
+    let patients = await query(`SELECT patients.id, first_name, last_name, DNI, email, direction, 
+    concat(pareja_first_name,' ', pareja_last_name) as family_id, ifnull(bed_id, 'sin cama') as bed_id, 
     ifnull(diseases.name, 'sin enfermedades') as disease_id
-    FROM patients left join diseases on diseases.id = disease_id`);
+    FROM patients left join diseases on diseases.id = disease_id
+    left join families on families.id = family_id`);
     return patients
 }
 
@@ -13,12 +15,16 @@ async function getPatientsForId(id) {
 }
 
 async function getPatient(consulta) {
-    let Patient = await query(`SELECT * FROM patients WHERE id LIKE '%${consulta}%' 
+    let Patient = await query(`SELECT patients.id, first_name, last_name, DNI, email, direction, 
+    concat(pareja_first_name,' ', pareja_last_name) as family_id, ifnull(bed_id, 'sin cama') as bed_id, 
+    ifnull(diseases.name, 'sin enfermedades') as disease_id
+    FROM patients left join diseases on diseases.id = disease_id
+    left join families on families.id = family_id 
+    WHERE patients.id LIKE '%${consulta}%' 
     OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' OR family_id LIKE '%${consulta}%'
     OR gender LIKE '%${consulta}%' OR city LIKE '%${consulta}%' OR district LIKE '%${consulta}%' 
     OR direction LIKE '%${consulta}%' OR telephone LIKE '%${consulta}%' OR email LIKE '%${consulta}%' 
     OR DNI LIKE '%${consulta}%'`)
-
     return Patient
 }
 

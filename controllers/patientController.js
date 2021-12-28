@@ -23,11 +23,23 @@ async function createPatient(req, res) {
     }
 
     let id_patient = await patient.getLastId()
+
     let bed_cod = 'bed_' + (id_patient + 1)
+
     let family_cod = 'fam_' + (id_patient + 1)
+    let data_family = {
+    cod: family_cod,
+    pareja_first_name: data.pareja_first_name,
+    pareja_last_name: data.pareja_last_name,
+    pareja_telephone: data.pareja_telephone,
+    pareja_email: data.pareja_email,
+    pareja_dni: data.pareja_dni,
+    hijo_first_name: data.hijo_first_name,
+    hijo_last_name: data.hijo_last_name
+    }
 
     await bed.createBed(bed_cod)
-    await family.createFamily(family_cod)
+    await family.createFamily(data_family)
 
     data.family_id = await family.getLastId()
     data.bed_id = await bed.getLastId()
