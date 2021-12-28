@@ -47,7 +47,7 @@ function buscar_datos(consulta) {
                     <th scope="col">Enfermedad </th>
                     <th scope="col">Codigo de familia</th>
                     <th scope="col">Cama</th>
-                    <th scope="col">Acción</th>
+                    
                   </tr>
                 </thead>
                 <tbody>`
@@ -64,12 +64,15 @@ function buscar_datos(consulta) {
                             <td>`+pac[i].disease_id+`</td>
                             <td>`+pac[i].family_id+`</td>
                             <td>`+pac[i].bed_id+`</td>
-                            <td><button id="btn-eliminar" class="btn btn-danger">Eliminar</button></td>
-                        </tr>`;
-                        
+                            
+                            </tr>`;
+
                                 }
                                 salidaB+=`</tbody></table>`
                                 document.querySelector('#datos').innerHTML = salidaB;
+
+
+                               
                                 
                                 
                                 
@@ -88,12 +91,12 @@ function buscar_datos(consulta) {
                   <th scope="col">Enfermedad </th>
                   <th scope="col">Codigo de familia</th>
                   <th scope="col">Cama</th>
-                  <th scope="col">Acción</th>
+                  
                   </tr>
                 </thead>
                 <tbody>
                 <tr>
-            <td colspan="10" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
+            <td colspan="9" class="text-center">NO HAY DATOS EN ESTA BUSQUEDA</td>
         </tr>
                 </tbody></table>`
                 document.querySelector('#datos').innerHTML = salidaC;  
@@ -153,3 +156,32 @@ function total_datos() {
         
 }
 //doc[i].first_name
+
+/*
+function eliminar(paciente_id){
+
+
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                        var urlencoded = new URLSearchParams();
+                        urlencoded.append("id", paciente_id);    
+                        var requestOptions = {
+                            method: 'DELETE',
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                          };
+                        fetch("http://localhost:5000/api/patients/"+paciente_id, requestOptions)
+                        .then(response => response.text())
+                        .then(result => console.log(result))
+                        .catch(error => console.log('error', error));    
+}
+
+*/
+/*
+var btn = document.getElementById('btn-eliminar');
+btn.addEventListener('click',function(){
+    console.log("eliminar");
+    
+    
+}, true)*/
