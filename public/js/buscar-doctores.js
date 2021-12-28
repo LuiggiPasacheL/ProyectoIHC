@@ -74,7 +74,6 @@ function buscar_datos(consulta) {
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Especialidades</th>
-                    <th scope="col">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
