@@ -20,11 +20,9 @@ async function getPatient(consulta) {
     ifnull(diseases.name, 'sin enfermedades') as disease_id
     FROM patients left join diseases on diseases.id = disease_id
     left join families on families.id = family_id 
-    WHERE patients.id LIKE '%${consulta}%' 
-    OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' OR family_id LIKE '%${consulta}%'
-    OR gender LIKE '%${consulta}%' OR city LIKE '%${consulta}%' OR district LIKE '%${consulta}%' 
-    OR direction LIKE '%${consulta}%' OR telephone LIKE '%${consulta}%' OR email LIKE '%${consulta}%' 
-    OR DNI LIKE '%${consulta}%'`)
+    having patients.id LIKE '%${consulta}%' OR first_name LIKE '%${consulta}%' OR last_name LIKE '%${consulta}%' 
+    OR family_id LIKE '%${consulta}%' OR direction LIKE '%${consulta}%' OR email LIKE '%${consulta}'
+    OR DNI LIKE '%${consulta}%' OR family_id LIKE '%${consulta}%' OR bed_id LIKE '%${consulta}%' OR disease_id LIKE '%${consulta}%'`)
     return Patient
 }
 

@@ -18,7 +18,7 @@ async function getDoctor(identificador) {
 	ifnull(group_concat(name), "General") as specialities
     from doctors left join specialities on doctor_id = doctors.id
     group by doctors.id
-    having first_name LIKE '%${identificador}%' OR last_name LIKE '%${identificador}%' 
+    having doctors.id LIKE '%${identificador}%' OR first_name LIKE '%${identificador}%' OR last_name LIKE '%${identificador}%' 
     OR specialities LIKE '%${identificador}%'`)
     return doctor
 }

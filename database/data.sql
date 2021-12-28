@@ -1,4 +1,5 @@
 
+use four_salud;
 -- inserciones
 insert into doctors (first_name, last_name) values ('Merla', 'Havvock');
 insert into doctors (first_name, last_name) values ('Lindsay', 'Tregunnah');
